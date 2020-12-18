@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const Modal = ({ setSelectedImg, selectedImg }) => {
 
     const handleClick = (e) => {
-        //chequear si es la foto o el div donde estoy haciendo click
+        //chequea si es la foto o el div donde estoy haciendo click
         if (e.target.classList.contains('backdrop')) {
             setSelectedImg(null);
         }
