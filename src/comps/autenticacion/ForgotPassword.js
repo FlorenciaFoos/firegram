@@ -1,6 +1,5 @@
 
 import React, { useRef, useState } from "react"
-import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../../contexts/AuthContext"
 import { Link } from "react-router-dom"
 
@@ -28,29 +27,26 @@ export default function ForgotPassword() {
     }
 
     return (
-        <>
-            <Card>
-                <Card.Body>
-                    <h2 className="text-center mb-4">Recuperar Contraseña</h2>
-                    {error && <Alert variant="danger">{error}</Alert>}
-                    {message && <Alert variant="success">{message}</Alert>}
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group id="email">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" ref={emailRef} required />
-                        </Form.Group>
-                        <Button disabled={loading} className="w-100" type="submit">
-                            Recuperar Contraseña
-            </Button>
-                    </Form>
-                    <div className="w-100 text-center mt-3">
-                        <Link to="/login">Ingresar</Link>
-                    </div>
-                </Card.Body>
-            </Card>
-            <div className="w-100 text-center mt-2">
-                No tienes cuenta? <Link to="/signup">Crear cuenta</Link>
-            </div>
-        </>
+        <div className='grid h-4/5 place-items-center'>
+
+            <h2 className="text-center mb-4 text-lg	 font-semibold uppercase">Recuperar Contraseña</h2>
+            {error && <div className='text-red-600 font-bold'>{error}</div>}
+            {message && <div className='text-green-600 font-bold'>{message}</div>}
+            <form onSubmit={handleSubmit}>
+                <div id="email">
+                    <label className='uppercase tracking-wide text-black text-xs font-bold mb-2'>Email</label>
+                    <input className='w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3 focus:bg-white' type="email" ref={emailRef} required />
+                </div>
+                <button disabled={loading} className="transform w-full bg-yellow-500 text-black font-bold py-2 px-4   hover:bg-pink-800 hover:text-white rounded-full" type="submit">
+                    Recuperar Contraseña
+            </button>
+            </form>
+
+            <Link to="/login" className=' transform  text-center underline text-md text-grey-dark hover:scale-125'>Ingresar</Link>
+
+
+            <Link to="/signup" className=' transform  text-center underline text-md text-grey-dark hover:scale-125'>Crear cuenta</Link>
+
+        </div>
     )
 }

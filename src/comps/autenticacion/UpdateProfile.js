@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react"
-import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
+import Nav from '../Nav'
 
 export default function UpdateProfile() {
     const emailRef = useRef()
@@ -31,7 +31,7 @@ export default function UpdateProfile() {
 
         Promise.all(promises)
             .then(() => {
-                history.push("/")
+                history.push("/pictures")
             })
             .catch(() => {
                 setError("Error al editar perfil")
@@ -43,44 +43,45 @@ export default function UpdateProfile() {
 
     return (
         <>
-            <Card>
-                <Card.Body>
-                    <h2 className="text-center mb-4">Editar perfil</h2>
-                    {error && <Alert variant="danger">{error}</Alert>}
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group id="email">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control
-                                type="email"
-                                ref={emailRef}
-                                required
-                                defaultValue={currentUser.email}
-                            />
-                        </Form.Group>
-                        <Form.Group id="password">
-                            <Form.Label>Contraseña</Form.Label>
-                            <Form.Control
-                                type="password"
-                                ref={passwordRef}
-                                placeholder="Leave blank to keep the same"
-                            />
-                        </Form.Group>
-                        <Form.Group id="password-confirm">
-                            <Form.Label>Confirma contraseña</Form.Label>
-                            <Form.Control
-                                type="password"
-                                ref={passwordConfirmRef}
-                                placeholder="Leave blank to keep the same"
-                            />
-                        </Form.Group>
-                        <Button disabled={loading} className="w-100" type="submit">
-                            Guardar
-            </Button>
-                    </Form>
-                </Card.Body>
-            </Card>
-            <div className="w-100 text-center mt-2">
-                <Link to="/">Cancelar</Link>
+            <Nav />
+            <div className='grid h-4/5 place-items-center'>
+
+                <h2 className="text-center mb-4 text-lg	 font-semibold uppercase">Editar perfil</h2>
+                {error && <div className='text-red-600 font-bold'>{error}</div>}
+                <form onSubmit={handleSubmit}>
+                    <div id="email">
+                        <label className='uppercase tracking-wide text-black text-xs font-bold mb-2'>Email</label>
+                        <input className=' w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3 focus:bg-white'
+                            type="email"
+                            ref={emailRef}
+                            required
+                            defaultValue={currentUser.email}
+                        />
+                    </div>
+                    <div id="password">
+                        <label className='uppercase tracking-wide text-black text-xs font-bold mb-2'>Contraseña</label>
+                        <input className=' w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3 focus:bg-white'
+                            type="password"
+                            ref={passwordRef}
+                            placeholder="Dejar en blanco si desea conservar lo mismo"
+                        />
+                    </div>
+                    <div id="password-confirm">
+                        <label className='uppercase tracking-wide text-black text-xs font-bold mb-2'>Confirma contraseña</label>
+                        <input className=' w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3 focus:bg-white'
+                            type="password"
+                            ref={passwordConfirmRef}
+                            placeholder="Dejar en blanco si desea conservar lo mismo"
+                        />
+                    </div>
+                    <button disabled={loading} className="transform w-full bg-yellow-500 text-black font-bold py-2 px-4  hover:text-white hover:bg-pink-800 rounded-full" type="submit">
+                        Guardar
+            </button>
+                </form>
+
+
+                <Link to="/pictures" className=' transform  text-center underline text-md text-grey-dark hover:scale-125'>Cancelar</Link>
+
             </div>
         </>
     )

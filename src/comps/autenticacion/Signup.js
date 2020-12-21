@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react';
-import { Card, Form, Button, Alert } from 'react-bootstrap'
 import { useAuth } from "../../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 
@@ -34,33 +33,30 @@ export default function Signup() {
 
     return (
 
-        <>
-            <Card>
-                <Card.Body>
-                    <h2 className="text-center mb-4">Crea tu cuenta</h2>
-                    {error && <Alert variant="danger">{error}</Alert>}
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group id="email">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" ref={emailRef} required />
-                        </Form.Group>
-                        <Form.Group id="password">
-                            <Form.Label>Contraseña</Form.Label>
-                            <Form.Control type="password" ref={passwordRef} required />
-                        </Form.Group>
-                        <Form.Group id="password-confirm">
-                            <Form.Label>Confirma contraseña</Form.Label>
-                            <Form.Control type="password" ref={passwordConfirmRef} required />
-                        </Form.Group>
-                        <Button disabled={loading} className="w-100" type="submit">
-                            Crear cuenta
-              </Button>
-                    </Form>
-                </Card.Body>
-            </Card>
-            <div className="w-100 text-center mt-2">
-                Ya tienes cuenta? <Link to="/login">Ingresa</Link>
-            </div>
-        </>
+        <div className='grid h-4/5 place-items-center'>
+
+            <h2 className="text-center mb-4 text-lg	 font-semibold uppercase">Crea tu cuenta</h2>
+            {error && <div className='text-red-600 font-bold'>{error}</div>}
+            <form onSubmit={handleSubmit}>
+                <div id="email" className='w-full'>
+                    <label className='uppercase tracking-wide text-black text-xs font-bold mb-2'>Email</label>
+                    <input className=' w-full bg-gray-200 text-black focus:bg-white border border-gray-200 rounded py-3 px-4 mb-3' type="email" ref={emailRef} required />
+                </div>
+                <div id="password" className='w-full'>
+                    <label className='uppercase tracking-wide text-black text-xs font-bold mb-2'>Contraseña</label>
+                    <input className=' w-full bg-gray-200 text-black focus:bg-white border border-gray-200 rounded py-3 px-4 mb-3' type="password" ref={passwordRef} required />
+                </div>
+                <div id="password-confirm" className='w-full'>
+                    <label className='uppercase tracking-wide text-black text-xs font-bold mb-2'>Confirma contraseña</label>
+                    <input className=' w-full bg-gray-200 focus:bg-white text-black border border-gray-200 rounded py-3 px-4 mb-3' type="password" ref={passwordConfirmRef} required />
+                </div>
+                <button disabled={loading} className="transform w-full bg-yellow-500 text-black font-bold py-2 px-4  hover:text-white hover:bg-pink-800 rounded-full" type="submit">
+                    Crear cuenta
+              </button>
+            </form>
+
+            <Link to="/login" className=' transform  text-center underline text-md text-grey-dark hover:scale-125'>Ingresa</Link>
+
+        </div>
     )
 }
