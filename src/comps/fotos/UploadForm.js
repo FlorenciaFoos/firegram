@@ -23,18 +23,26 @@ const UploadForm = () => {
     }
 
     return (
-        <form action="">
-            <label >
-                <input type="file" onChange={changeHandler} />
-                <FontAwesomeIcon icon={faPlus} />
-            </label>
 
-            <div className='output'>
-                {error && <div className='error'>{error}</div>}
+        <div className='flex flex-col items-center mt-20'>
+            <h2 className='font-bold text-5xl mb-8'>Tus fotos</h2>
+            <p className='font-light text-2xl mb-8'>~Bellas miradas~</p>
+            <form action="">
+                <label >
+                    <input className='opacity-0 w-0 h-0' type="file" onChange={changeHandler} />
+                    <FontAwesomeIcon icon={faPlus} className='text-5xl cursor-pointer' />
+                </label>
+
+
+            </form>
+            <div className='mt-8'>
+                {error && <div className='text-red-600 font-bold'>{error}</div>}
                 {file && <div >{file.name}</div>}
                 {file && <ProgressBar file={file} setFile={setFile} />}
             </div>
-        </form>
+        </div>
+
+
     )
 }
 

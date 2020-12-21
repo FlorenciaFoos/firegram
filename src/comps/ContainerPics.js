@@ -14,9 +14,6 @@ const ContainerPics = () => {
     return (
         <>
             <Nav />
-            <h2>Tus fotos</h2>
-            <p>Bellas miradas</p>
-
             <UploadForm />
             <ImageGrid setSelectedImg={setSelectedImg} />
             { selectedImg && <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />}
