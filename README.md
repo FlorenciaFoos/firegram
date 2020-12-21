@@ -1,6 +1,7 @@
 Galería de fotos con autenticación, Firebase_React Hooks_React-Router
-*SE PUEDE VER EN https://petgramreact.netlify.app/
+# SE PUEDE VER EN https://petgramreact.netlify.app/
 
+Proyecto en progreso... 
 #
 #
 #
