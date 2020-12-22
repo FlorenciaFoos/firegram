@@ -7,7 +7,7 @@ import ForgotPassword from './comps/autenticacion/ForgotPassword'
 import PrivateRoute from './comps/autenticacion/PrivateRoute'
 
 import { AuthProvider } from './contexts/AuthContext'
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"
 
 function App() {
 
@@ -23,7 +23,9 @@ function App() {
         <Router>
           <AuthProvider>
             <Switch>
-
+              <Route exact path="/">
+                <Redirect to="/login" />
+              </Route>
               <PrivateRoute path="/update-profile" component={UpdateProfile} />
               <PrivateRoute path="/pictures" component={ContainerPics} />
               <Route path="/signup" component={Signup} />
