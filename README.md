@@ -1,4 +1,4 @@
-Galería de fotos con autenticación, Firebase_React Hooks_React-Router
+Galería de fotos con autenticación, Firebase_React Hooks_React-Router_TailwindCSS
 # 
 SE PUEDE VER EN https://petgramreact.netlify.app
 (usuario de prueba : kimagay686@ahhtee.com
