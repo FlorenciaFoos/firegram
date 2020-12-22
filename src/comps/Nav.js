@@ -53,7 +53,7 @@ const Nav = () => {
         </div>
       </nav>
 
-      {/* {error && <div variant="danger">{error}</div>} */}
+      {error && <div className='text-red-600 font-bold'>{error}</div>}
 
     </header>
   )
