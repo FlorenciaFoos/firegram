@@ -1,6 +1,8 @@
 Galería de fotos con autenticación, Firebase_React Hooks_React-Router
 # 
 SE PUEDE VER EN https://petgramreact.netlify.app
+(usuario de prueba : kimagay686@ahhtee.com
+ contraseña de prueba: prueba123)
 
 Proyecto en progreso... 
 #
