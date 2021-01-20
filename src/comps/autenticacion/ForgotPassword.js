@@ -27,26 +27,26 @@ export default function ForgotPassword() {
     }
 
     return (
-        <div className='grid h-4/5 place-items-center'>
-
-            <h2 className="text-center mb-4 text-lg	 font-semibold uppercase">Recuperar Contraseña</h2>
-            {error && <div className='text-red-600 font-bold'>{error}</div>}
-            {message && <div className='text-green-600 font-bold'>{message}</div>}
-            <form onSubmit={handleSubmit}>
-                <div id="email">
-                    <label className='uppercase tracking-wide text-black text-xs font-bold mb-2'>Email</label>
-                    <input className='w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3 focus:bg-white' type="email" ref={emailRef} required />
-                </div>
-                <button disabled={loading} className="transform w-full bg-yellow-500 text-black font-bold py-2 px-4   hover:bg-pink-800 hover:text-white rounded-full" type="submit">
-                    Recuperar Contraseña
+        <div className='grid h-screen  bg-pink-200'>
+            <div className='flex flex-col justify-center items-center'>
+                <h2 className="text-center mb-4 text-lg	 font-semibold uppercase">Recuperar Contraseña</h2>
+                {error && <div className='text-red-600 font-bold'>{error}</div>}
+                {message && <div className='text-green-600 font-bold'>{message}</div>}
+                <form onSubmit={handleSubmit}>
+                    <div id="email">
+                        <label className='uppercase tracking-wide text-black text-xs font-bold mb-2'>Email</label>
+                        <input className='w-full bg-white text-black border border-gray-200 rounded py-3 px-4 mb-3 focus:bg-white' type="email" ref={emailRef} required />
+                    </div>
+                    <button disabled={loading} className="transform w-full bg-yellow-400 text-black font-bold py-2 px-4  mb-8 hover:text-white  hover:bg-pink-600 rounded-full" type="submit">
+                        Recuperar Contraseña
             </button>
-            </form>
+                </form>
 
-            <Link to="/login" className=' transform  text-center underline text-md text-grey-dark hover:scale-125'>Ingresar</Link>
+                <Link to="/login" className=' transform  text-center underline text-md text-grey-dark hover:scale-125'>Ingresar</Link>
 
 
-            <Link to="/signup" className=' transform  text-center underline text-md text-grey-dark hover:scale-125'>Crear cuenta</Link>
-
+                <Link to="/signup" className=' transform  text-center underline text-md text-grey-dark hover:scale-125'>Crear cuenta</Link>
+            </div>
         </div>
     )
 }
